@@ -17,12 +17,36 @@ public class App
     {
         ApplicationContext context=new ClassPathXmlApplicationContext("config.xml");
        StudentDao studentDao= context.getBean("studentDao", StudentDao.class);
-//       Student student=new Student(555,"hament kumar","Lucknow");
-//       int i=studentDao.insert(student);
-//        System.out.println("Number of row inserted : "+i);
 
-       Student students=studentDao.fetchStudent(555);
-        System.out.println(students);
+       // to insert data in table
+
+       Student student=new Student(333,"Amit kumar","Delhi");
+       int i=studentDao.insert(student);
+        System.out.println("Number of row inserted : "+i);
+
+        //to fetch data by id
+
+//       Student students=studentDao.fetchStudent(555);
+//        System.out.println(students);
+
+        //to update data
+
+//        Student student=new Student(111,"Rakhi Kumari","Lucknow");
+//        studentDao.updateStudent(student);
+
+        //to delete Data
+
+  //      studentDao.deleteStudent(333);
+
+
+        // to fetch all data
+
+        List<Student> students=studentDao.fetchAllStudent();
+        for (Student s:students)
+        {
+            System.out.println(s);
+        }
+
 
     }
 }
